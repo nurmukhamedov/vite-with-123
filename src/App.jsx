@@ -1,18 +1,28 @@
+import { useState } from 'react'
 import './App.css'
-import ExampleForm from './Lesson-56/ExampleForm'
-import Example from './Lesson-56/ExampleTailwind'
-import Movie from './Lesson-56/Movie'
-import RestCountries from './Lesson-56/RestCountries'
+import ExampleToDoReducer from './Lesson58/ExampleToDoReducer';
+
 
 function App() {
 
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    setCount(count + 1)
+  }
+
+  const decreaseCount = () => {
+    setCount(count - 1)
+  }
+
   return (
     <>
-      <ExampleForm />
+      <h2>{count}</h2>
+      <button onClick={increaseCount}>Plus</button>
+      <button onClick={decreaseCount}>Minus</button>
 
-      <RestCountries />
-      <Movie />
-      <Example />
+      <h3>Reducer example</h3>
+      <ExampleToDoReducer />
     </>
   )
 }
